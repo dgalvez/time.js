@@ -10,7 +10,7 @@ The current API:
 
 * The `TIME` global variable is the constructor:
  
-`time = TIME('30/02/2011 14:30', new Date(), new Date());`
+`var time = TIME('30/02/2011 14:30', new Date(), new Date());`
    
 * `Object.prototype.toString.call(time) === '[object Array]'` // false
 

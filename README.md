@@ -10,13 +10,7 @@ The current API:
 
 * The `TIME` global variable is the constructor:
  
-   var foo = new Date(), 
-   bar = new Date(), 
-   time;
-
-   bar.setFullYear(1982); 
-   
-   time = TIME('30/02/2011 14:30', foo, bar);
+`time = TIME('30/02/2011 14:30', new Date(), new Date());`
    
 * `Object.prototype.toString.call(time) === '[object Array]'` // false
 

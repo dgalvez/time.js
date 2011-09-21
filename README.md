@@ -1,34 +1,33 @@
+time.js
+========
 
-var global = (function(){ return this; })();
+Simple Javascript Date Object Wrapper. 
 
-function checkObj(obj, compared) {
-   var attr;
-   for(attr in compared) if(compared.hasOwnProperty(attr)) { 
-       equal(compared[attr], obj[attr]);  
-   }
-}
+How to use it
+-------------
 
-module('Core Module Tests');
+The current API:
 
-test('Core Object', function() {
-       
-       ok('TIME' in global); 
-       
-}); 
+* The `TIME` global variable is the constructor:
+ 
+`var time = TIME('30/02/2011 14:30', new Date(), (new Date()).setFullYear(1988));`
+   
+* `Object.prototype.toString.call(time) === '[object Array]'` // false
 
-test('Periods', function() { 
-        
-    var foo = {"years":"+1","months":"+2","days":"-3","hours":"+4","minutes":"+6","seconds":"+20","milliseconds":"+3"}, 
-        bar = {"years":"+2","minutes":"+6"};
-        
-    checkObj(TIME.period('+1year +2months -3days +4hours 6minutes +20seconds +3milliseconds'), foo);  
-    checkObj(TIME.period(' +1year +2months -3days    +4hours  +6minutes +20seconds +3milliseconds '), foo);    
-    checkObj(TIME.period('+2years +6minutes'), bar);      
-    checkObj(TIME.period(' +6minutes 2years '), bar);      
+* But `time.eq(0)` is returning an object with these methods:
     
-});
+    - isBefore(dateToBeCompared)
+    - isAfter(dateToBeCompared)
+    - isBetween(dateToBeCompared1, dateToBeCompared2)
+    - add(periodString)
+    - set(periodString) 
+    - time()
+    - date()
+    - index()
 
-test('Oldest Method', function() { 
+* And `time` lets you do things like these
+
+`test('Oldest Method', function() { 
     
     var time = TIME('01/09/2011', '02/09/2011', '03/09/2011');
     
@@ -107,4 +106,4 @@ test('Set Method', function() {
     time.eq(4).set('+1millisecond');
     equal(time.eq(4).toString(), '01/03/2011');
     
-});
+});`

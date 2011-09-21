@@ -10,13 +10,13 @@ The current API:
 
 * The `TIME` global variable is the constructor:
  
-`  var foo = new Date(), 
+   var foo = new Date(), 
    bar = new Date(), 
    time;
 
    bar.setFullYear(1982); 
    
-   time = TIME('30/02/2011 14:30', foo, bar);`
+   time = TIME('30/02/2011 14:30', foo, bar);
    
 * `Object.prototype.toString.call(time) === '[object Array]'` // false
 
@@ -33,7 +33,7 @@ The current API:
 
 * And `time` lets you do things like these
 
-`test('Oldest Method', function() { 
+test('Oldest Method', function() { 
     
     var time = TIME('01/09/2011', '02/09/2011', '03/09/2011');
     
@@ -112,4 +112,4 @@ test('Set Method', function() {
     time.eq(4).set('+1millisecond');
     equal(time.eq(4).toString(), '01/03/2011');
     
-});`
+});
